@@ -7,7 +7,7 @@
 }
 
 .material {
-  width: 200px;
+  width: 160px;
 }
 
 .amount {
@@ -26,5 +26,28 @@
   position: absolute;
   font-size: 14px;
   width: 15px;
-  left: 190px;
+  left: 150px;
  }
+
+ #coladd {
+   float: right;
+   right: 500px;
+ }
+
+ #print {
+   float: right;
+   right: -5px;
+ }
+
+ /* #title {
+   font-size:200%;
+ } */
+
+ /* text-input {
+  height: 48px;
+  font-size: 48px;
+} */
+
+ons-input input {
+  font-size: 200%;
+}

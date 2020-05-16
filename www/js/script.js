@@ -14,6 +14,62 @@ function nullJudge(x, y, z) {
   }
 }
 
+//プリント処理
+function print(ele) {
+  var opt = {
+    orientation: 'portrait',   //印刷の向き
+    margin: false,
+    paper: {height: '1000px',
+         width: '1000px',
+    }
+  }
+  const title = ele.parentNode.children[0].value;
+  const list = document.getElementById('list');
+  const TOTAL = ele.parentNode.children[7].children[0].textContent;
+  const count = list.childElementCount - 1;
+
+  let materials = [];
+  let amounts = [];
+  let prices = [];
+  let useAmounts = [];
+  let sums = [];
+  for(let i = 0; i < count; i++) {
+    materials.push(document.getElementById('material'+i).value);
+  }
+  console.log(materials);
+  for(let i = 0; i < count; i++) {
+    amounts.push(document.getElementById('amount'+i).value);
+  }
+  console.log(amounts);
+  for(let i = 0; i < count; i++) {
+    prices.push(document.getElementById('price'+i).value);
+  }
+  console.log(prices);
+  for(let i = 0; i < count; i++) {
+    useAmounts.push(document.getElementById('useAmount'+i).value);
+  }
+  console.log(useAmounts);
+  for(let i = 0; i < count; i++) {
+    sums.push(document.getElementById('sum'+i).textContent);
+  }
+  console.log(sums);
+
+  let contents;
+  for(let i = 0; i < count; i++) {
+    if(i === 0) {
+      contents = '<tr><td>' + materials[i] + '</td><td>' + amounts[i] + '㌘ / ' + prices[i] + '円</td><td>' + useAmounts[i] + '㌘</td><td>' + sums[i] + '円</td></tr>';
+    } else {
+      contents += '<tr><td>' + materials[i] + '</td><td>' + amounts[i] + '㌘ / ' + prices[i] + '円</td><td>' + useAmounts[i] + '㌘</td><td>' + sums[i] + '円</td></tr>';
+    }
+  }
+  console.log(contents);
+  
+  cordova.plugins.printer.print('<h1>' + title + '</h1><table border="1" width="400"><tr><th>素材</th><th>商品</th><th>使用量</th><th>小計</th></tr>' + contents + '</table><h3>合計：' + TOTAL + '円</h3>', opt);
+
+  // cordova.plugins.printer.print('<table border="1"><tr><th>素材</th><th>商品</th><th>使用量</th><th>小計</th></tr>' + rowItem.children[0].children[0].value + '</td><td>' + rowItem.children[1].children[0].value + '㌘ /' + rowItem.children[1].children[1].value + '円</td><td>' + rowItem.children[2].children[0].value + '㌘</td><td>' + rowItem.children[3].children[0].textContent + '</td></tr></table><h3>' + TOTAL + '</h3>', opt);
+  // cordova.plugins.printer.print("", opt);
+}
+
 //【計算ページ】量が入力された時
 changeAmountCalc = function(ele) {
   var amount = ele.value;

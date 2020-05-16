@@ -32,6 +32,8 @@
       <div class="center">材料費計算</div>
     </ons-toolbar>
     <ons-card class="calcCard">
+      <ons-input id="title" type="text" placeholder="作品名を入力" style="font-size:30px;"></ons-input>
+      <ons-button type="button" id="print" onclick="print(this)">印刷</ons-button>
       <ons-list id="list" modifier="inset">
         <ons-list-header>
           <ons-row>
@@ -77,7 +79,7 @@
         </ons-list-item>
       </ons-list>
     <br>
-    <ons-button type="button" id="coladd" onclick="coladd()">追加</ons-button>
+    <ons-button type="button" id="coladd" onclick="coladd()">＋</ons-button>
     <br><br>
     <div class="total-wrapper">合計：<span id="total">0</span>円</div> 
   </ons-card>
