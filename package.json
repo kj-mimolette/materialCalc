@@ -7,7 +7,8 @@
         "cordova-plugin-splashscreen": "5.0.2",
         "cordova-plugin-whitelist": "1.3.3",
         "monaca-plugin-monaca-core": "3.3.0",
-        "cordova-plugin-wkwebview-engine": "1.2.1"
+        "cordova-plugin-wkwebview-engine": "1.2.1",
+        "cordova-plugin-printer": "file:res/custom_plugins/cordova-plugin-printer"
     },
     "scripts": {
         "monaca:preview": "npm run dev",
@@ -19,7 +20,8 @@
             "cordova-plugin-splashscreen": {},
             "cordova-custom-config": {},
             "monaca-plugin-monaca-core": {},
-            "cordova-plugin-wkwebview-engine": {}
+            "cordova-plugin-wkwebview-engine": {},
+            "cordova-plugin-printer": {}
         }
     },
     "devDependencies": {
